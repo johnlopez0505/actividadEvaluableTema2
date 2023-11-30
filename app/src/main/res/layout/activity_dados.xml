@@ -6,22 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".Dados">
 
-    <ImageButton
+    <ImageView
+        android:id="@+id/image_fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/giphy" />
+
+    <ImageView
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
+        android:padding="0dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vaso" />
+        app:srcCompat="@mipmap/cubilete" />
+
+    <ImageView
+        android:id="@+id/imagview_carta"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301"
+        app:srcCompat="@null" />
 
     <ImageView
         android:id="@+id/imagview_dado1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="252dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:srcCompat="@drawable/dado1" />
@@ -30,20 +53,21 @@
         android:id="@+id/imagview_dado2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        app:layout_constraintEnd_toEndOf="@+id/imagview_dado1"
-        app:layout_constraintTop_toBottomOf="@+id/imagview_dado1"
+        android:layout_marginTop="252dp"
+        app:layout_constraintEnd_toStartOf="@+id/imagview_dado3"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toEndOf="@+id/imagview_dado1"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:srcCompat="@drawable/dado1" />
 
     <ImageView
         android:id="@+id/imagview_dado3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        app:layout_constraintStart_toStartOf="@+id/imagview_dado2"
-        app:layout_constraintTop_toBottomOf="@+id/imagview_dado2"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:srcCompat="@drawable/dado1" />
 
     <TextView
@@ -51,14 +75,43 @@
         android:layout_width="177dp"
         android:layout_height="73dp"
         android:text="0"
-        android:textColor="@color/purple_500"
+        android:textColor="#F9F8FA"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.726"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagview_dado3"
-        app:layout_constraintVertical_bias="0.511" />
+        app:layout_constraintVertical_bias="0.504" />
+
+
+    <Button
+        android:id="@+id/button_salir"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_login"
+        android:text="@string/salir"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="@+id/image_fondo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/button_jugar"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_login"
+        android:text="@string/jugar"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="@+id/image_fondo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@ class Principal : AppCompatActivity() {
         bindingPrincipal.progressCircular.visibility = View.VISIBLE  //hacemos visible el progress
         bindingPrincipal.layouPrincipal.visibility =   View.GONE //ocultamos el cardview.
         Thread{
-            Thread.sleep( 2000)
+            Thread.sleep( 1500)
             handler.post{
                 bindingPrincipal.progressCircular.visibility = View.GONE //ocultamos el progress
 
@@ -70,11 +70,10 @@ class Principal : AppCompatActivity() {
         }
 
 
-        bindingPrincipal.btnSalir.setOnClickListener{
-            // Mostrar un mensaje Toast indicando que la aplicación se cerrará
-            Toast.makeText(this, "Cerrando la aplicación", Toast.LENGTH_SHORT).show()
-            // Cerrar la actividad actual
-            finish()
+        bindingPrincipal.btnChiste.setOnClickListener{
+            intent = Intent(this,SintetizarTextoEnVoz::class.java)
+            Toast.makeText(this, "Abrindo cuenta chistes", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
         }
 
 

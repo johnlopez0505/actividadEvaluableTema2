@@ -37,5 +37,10 @@
     <string name="clase">Clase PMDM 2023-2024</string>
     <string name="calabazapp">CalabazApp: La App de Halloween</string>
     <string name="dados">Dados</string>
+    <string name="chiste">   Esto era uno, que era tan tonto, tan tonto, tan tonto, que echó una carrera
+    el sólo y quedó segundo</string>
+    <string name="describe">Chicos de PMDM del Virgen del Carmen, soy Santi. Este ejemplo, te muestra un botón donde escuchar un chiste</string>
+    <string name="chistes">Chistes</string>
+    <string name="jugar">Jugar</string>
     />
 </resources>
