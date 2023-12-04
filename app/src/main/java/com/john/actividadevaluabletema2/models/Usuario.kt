@@ -1,4 +1,4 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.models
 
 // Clase Usuario
 data class Usuario(

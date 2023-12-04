@@ -1,4 +1,4 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.object_models
 
 object Jugadores {
     val namesPlayer = arrayOf("Selecciona uno","Alejandro", "Sofía", "Javier", "Lucía", "Pablo", "Emma",

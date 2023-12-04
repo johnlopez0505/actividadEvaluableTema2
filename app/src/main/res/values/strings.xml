@@ -43,6 +43,7 @@
     <string name="chistes">Chistes</string>
     <string name="jugar">Jugar</string>
     <string name="jugador">JUGADOR</string>
-    <string name="tiradas">TIRADAS</string>
+    <string name="tiradas">TIRADAS:</string>
+    <string name="edad">EDAD:</string>
     />
 </resources>

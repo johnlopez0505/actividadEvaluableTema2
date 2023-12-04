@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/fondo_terror"
     android:layout_height="match_parent"
-    tools:context=".Principal">
+    tools:context=".dao.Principal">
 
     <ImageView
         android:id="@+id/image_luces"

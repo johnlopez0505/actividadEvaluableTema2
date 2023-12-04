@@ -1,4 +1,4 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.dao
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,18 +10,16 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.john.actividadevaluabletema2.databinding.ActivityEntradaDatosBinding
+import com.john.actividadevaluabletema2.object_models.Jugadores
 
 class EntradaDatos : AppCompatActivity() {
     private lateinit var bindingEntradaDatos : ActivityEntradaDatosBinding
-    private var alumns : MutableList<String>
+    private var alumns : MutableList<String> = Jugadores.namesPlayer.toMutableList()
     private lateinit var spiner: String
     private lateinit var nivel : String
     private lateinit var tiradas : String
     private lateinit var adapter : ArrayAdapter<String>
 
-    init {
-        alumns = Jugadores.namesPlayer.toMutableList()
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingEntradaDatos = ActivityEntradaDatosBinding.inflate(layoutInflater)
@@ -64,9 +62,7 @@ class EntradaDatos : AppCompatActivity() {
             }else
                 false
         }
-
     }
-
 
     private fun proveRadio(){
         bindingEntradaDatos.radioGroup.setOnCheckedChangeListener{
@@ -233,8 +229,9 @@ class EntradaDatos : AppCompatActivity() {
         intent.putExtra("name", spiner)
         intent.putExtra("novel", nivel)
         intent.putExtra("rolls",tiradas)
+        intent.putExtra("nameEditAuto",bindingEntradaDatos.editAuto.text.toString())
+        intent.putExtra("age",bindingEntradaDatos.editText.text.toString())
         startActivity(intent)
-
     }
 
 
@@ -287,6 +284,4 @@ class EntradaDatos : AppCompatActivity() {
             finish()
         }
     }
-
-
 }

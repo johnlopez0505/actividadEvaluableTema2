@@ -1,4 +1,4 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.dao
 
 
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.john.actividadevaluabletema2.R
 import com.john.actividadevaluabletema2.databinding.ActivityDadosBinding
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -229,18 +230,24 @@ class Dados : AppCompatActivity() {
         txtName = bindingDados.txtJugador
         val txtNivel = bindingDados.textNivel
         val txtTiradas = bindingDados.tiradas
+        val txtEdad = bindingDados.txtEdad
+        val txtName1 = bindingDados.txtJugador
         val name = intent.getStringExtra("name")
         val novel = intent.getStringExtra("novel")
         val rolls = intent.getStringExtra("rolls")
+        val age = intent.getStringExtra("age")
+        val nameEditAuto = intent.getStringExtra("nameEditAuto")
         if (name!= null){
             txtName.text = "$name"
             txtNivel.text = "$novel"
             txtTiradas.text= "$rolls"
+            txtEdad.text = "$age"
 
 
         }
-
+        if (name == "Selecciona uno" || name != nameEditAuto){
+            txtName1.text = "$nameEditAuto"
+        }
     }
-
 }
 

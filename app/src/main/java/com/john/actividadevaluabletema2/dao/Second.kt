@@ -1,4 +1,4 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.dao
 
 import android.Manifest
 import android.content.Intent

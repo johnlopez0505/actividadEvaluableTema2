@@ -1,4 +1,4 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.dao
 
 import android.content.Intent
 import android.net.Uri
@@ -11,8 +11,8 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toDrawable
 import com.bumptech.glide.Glide
+import com.john.actividadevaluabletema2.R
 import com.john.actividadevaluabletema2.databinding.ActivityPrincipalBinding
 
 class Principal : AppCompatActivity() {
@@ -43,7 +43,8 @@ class Principal : AppCompatActivity() {
                 bindingPrincipal.progressCircular.visibility = View.GONE //ocultamos el progress
                 hideGif()// ocultamos el gif.
                 bindingPrincipal.constraint.background = ContextCompat.getDrawable(this,
-                    R.drawable.fondo_terror)
+                    R.drawable.fondo_terror
+                )
                 bindingPrincipal.layouPrincipal.visibility = View.VISIBLE
                 Toast.makeText(this, "Estamos en la pantalla principal",
                     Toast.LENGTH_SHORT).show()
@@ -72,14 +73,14 @@ class Principal : AppCompatActivity() {
         }
 
         bindingPrincipal.btnDados.setOnClickListener{
-            intent = Intent(this,EntradaDatos::class.java)
+            intent = Intent(this, EntradaDatos::class.java)
             Toast.makeText(this, "Entrada de datos", Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }
 
 
         bindingPrincipal.btnChiste.setOnClickListener{
-            intent = Intent(this,SintetizarTextoEnVoz::class.java)
+            intent = Intent(this, SintetizarTextoEnVoz::class.java)
             Toast.makeText(this, "Abrindo cuenta chistes", Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }

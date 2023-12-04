@@ -1,10 +1,11 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.dao
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.john.actividadevaluabletema2.databinding.ActivityLoginBinding
+import com.john.actividadevaluabletema2.models.Usuarios
 
 
 class Login : AppCompatActivity() {
@@ -50,7 +51,7 @@ class Login : AppCompatActivity() {
 
     }
     private fun registerUser() {
-        val  intent = Intent(this,Register::class.java)
+        val  intent = Intent(this, Register::class.java)
         startActivity(intent)
 
     }

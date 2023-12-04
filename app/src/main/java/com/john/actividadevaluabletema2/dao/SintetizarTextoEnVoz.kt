@@ -1,4 +1,4 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.dao
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +10,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.john.actividadevaluabletema2.R
 import com.john.actividadevaluabletema2.databinding.ActivitySintetizarTextoEnVozBinding
+import com.john.actividadevaluabletema2.object_models.Chistes
 import java.util.Locale
 
 class SintetizarTextoEnVoz : AppCompatActivity() {
@@ -45,7 +47,8 @@ class SintetizarTextoEnVoz : AppCompatActivity() {
                 hideGif()// ocultamos el gif.
                 loadGif2()// cargamos el gif2.
                 bindingSintetizar.constraint.setBackgroundColor(ContextCompat.getColor(this,
-                    R.color.claro))
+                    R.color.claro
+                ))
                 val description = getString(R.string.describe).toString()
                 speakMeDescription(description)  //que nos comente de qué va esto...
                 Log.i(MYTAG,"Se ejecuta correctamente el hilo")
@@ -80,7 +83,7 @@ class SintetizarTextoEnVoz : AppCompatActivity() {
             //Comprobamos si el margen entre pulsación, da lugar a una doble pulsación.
             if (currentTime - touchLastTime < TOUCH_MAX_TIME){
                 //  touchNumber=0
-                chisteNumero = (0..Chistes.chistes.size).random().toString()
+                chisteNumero = (0..<Chistes.chistes.size).random().toString()
                 executorDoubleTouch(Chistes.chistes[chisteNumero.toInt()])  //hemos pulsado dos veces, por tanto lanzamos el chiste.
                 Log.i(MYTAG,"Escuchamos el chiste")
             }

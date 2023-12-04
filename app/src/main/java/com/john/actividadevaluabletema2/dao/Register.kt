@@ -1,10 +1,12 @@
-package com.john.actividadevaluabletema2
+package com.john.actividadevaluabletema2.dao
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.john.actividadevaluabletema2.databinding.ActivityRegisterBinding
+import com.john.actividadevaluabletema2.models.Usuario
+import com.john.actividadevaluabletema2.models.Usuarios
 
 class Register : AppCompatActivity() {
     private lateinit var bindingRegister : ActivityRegisterBinding
