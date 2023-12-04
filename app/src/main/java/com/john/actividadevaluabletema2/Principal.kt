@@ -10,6 +10,9 @@ import android.provider.AlarmClock
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toDrawable
+import com.bumptech.glide.Glide
 import com.john.actividadevaluabletema2.databinding.ActivityPrincipalBinding
 
 class Principal : AppCompatActivity() {
@@ -23,6 +26,7 @@ class Principal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bindingPrincipal = ActivityPrincipalBinding.inflate(layoutInflater)
         setContentView(bindingPrincipal.root)
+
         initEvent()
         initHander()
         login()
@@ -30,12 +34,16 @@ class Principal : AppCompatActivity() {
     private fun initHander() {
         val handler = Handler(Looper.getMainLooper()) //queremos que el tema de la IU, la llevemos al hilo principal.
         bindingPrincipal.progressCircular.visibility = View.VISIBLE  //hacemos visible el progress
+        bindingPrincipal.constraint.background = null
+        loadGif()
         bindingPrincipal.layouPrincipal.visibility =   View.GONE //ocultamos el cardview.
         Thread{
             Thread.sleep( 1500)
             handler.post{
                 bindingPrincipal.progressCircular.visibility = View.GONE //ocultamos el progress
-
+                hideGif()// ocultamos el gif.
+                bindingPrincipal.constraint.background = ContextCompat.getDrawable(this,
+                    R.drawable.fondo_terror)
                 bindingPrincipal.layouPrincipal.visibility = View.VISIBLE
                 Toast.makeText(this, "Estamos en la pantalla principal",
                     Toast.LENGTH_SHORT).show()
@@ -64,8 +72,8 @@ class Principal : AppCompatActivity() {
         }
 
         bindingPrincipal.btnDados.setOnClickListener{
-            intent = Intent(this,Dados::class.java)
-            Toast.makeText(this, "Abriendo juego dados", Toast.LENGTH_SHORT).show()
+            intent = Intent(this,EntradaDatos::class.java)
+            Toast.makeText(this, "Entrada de datos", Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }
 
@@ -106,6 +114,14 @@ class Principal : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+    private fun loadGif(){
+        val gifImageView = bindingPrincipal.imageLuces
+        gifImageView.visibility = View.VISIBLE
+        Glide.with(this).load(R.drawable.luces).centerCrop().into(gifImageView)
+    }
+    private fun hideGif(){
+        bindingPrincipal.imageLuces.visibility = View.GONE
     }
 
 }

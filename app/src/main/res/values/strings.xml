@@ -39,8 +39,10 @@
     <string name="dados">Dados</string>
     <string name="chiste">   Esto era uno, que era tan tonto, tan tonto, tan tonto, que echó una carrera
     el sólo y quedó segundo</string>
-    <string name="describe">Chicos de PMDM del Virgen del Carmen, soy Santi. Este ejemplo, te muestra un botón donde escuchar un chiste</string>
+    <string name="describe">Chicos de PMDM del Virgen del Carmen, soy john. Este ejemplo, te muestra un botón donde escuchar un chiste</string>
     <string name="chistes">Chistes</string>
     <string name="jugar">Jugar</string>
+    <string name="jugador">JUGADOR</string>
+    <string name="tiradas">TIRADAS</string>
     />
 </resources>

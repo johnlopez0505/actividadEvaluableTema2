@@ -12,6 +12,7 @@ import android.view.animation.RotateAnimation
 import android.view.animation.ScaleAnimation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.john.actividadevaluabletema2.databinding.ActivityDadosBinding
@@ -22,29 +23,35 @@ import kotlin.random.Random
 class Dados : AppCompatActivity() {
     private lateinit var bindingDados : ActivityDadosBinding
     private var sum : Int = 0
+    private lateinit var txtName     : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingDados = ActivityDadosBinding.inflate(layoutInflater)
         setContentView(bindingDados.root)
 
-        val imageView = findViewById<ImageView>(R.id.image_fondo)
-        Glide.with(this).load(R.drawable.giphy).into(imageView)
 
         initEvent()
     }
 
     private fun initEvent() {
-
+        player()
+        loadGif() // cargamos gif de fondo
         bindingDados.txtResultado.visibility = View.INVISIBLE
         bindingDados.buttonJugar.setOnClickListener{
             bindingDados.txtResultado.visibility = View.VISIBLE
             game()  //comienza el juego
+
         }
         bindingDados.buttonSalir.setOnClickListener{
-            Toast.makeText(this, "Regresando a la panatalla principal", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Regresando a Configuración", Toast.LENGTH_SHORT).show()
             finish()
         }
 
+    }
+
+    private fun loadGif() {
+        val gifImageView = findViewById<ImageView>(R.id.image_fondo)
+        Glide.with(this).load(R.drawable.giphy).centerCrop().into(gifImageView)
     }
 
     //Comienza el juego
@@ -60,8 +67,9 @@ class Dados : AppCompatActivity() {
     private fun sheduleRun() {
 
         val schedulerExecutor = Executors.newSingleThreadScheduledExecutor()
-        val msc = 2000
-        for (i in 1..5){//lanzamos 5 veces el dado
+        val tiradas =  bindingDados.tiradas.text.toString().toLong()
+        val msc = 1000
+        for (i in 1..tiradas){//lanzamos 5 veces el dado
             schedulerExecutor.schedule(
                 {
                     throwDadoInTime()  //Lanzo los tres dados.
@@ -71,7 +79,8 @@ class Dados : AppCompatActivity() {
         schedulerExecutor.schedule({//El último hilo, es mostrar el resultado.
             viewResult()
         },
-            msc  * 7.toLong(), TimeUnit.MILLISECONDS)
+
+            msc  * (tiradas + 2), TimeUnit.MILLISECONDS)
         schedulerExecutor.shutdown()  //Ya no aceptamos más hilos.
     }
 
@@ -118,6 +127,7 @@ class Dados : AppCompatActivity() {
         bindingDados.txtResultado.text = sum.toString()
         println(sum)
         val imgView = bindingDados.imagviewCarta
+        imgView.startAnimation(animationCard())
         selectCard(imgView,sum)
 
 
@@ -182,8 +192,6 @@ class Dados : AppCompatActivity() {
     }
     private fun selectCard(imgV: ImageView, v: Int){
         when (v){
-            1 -> imgV.setImageResource(R.drawable.carta1);
-            2 -> imgV.setImageResource(R.drawable.carta2);
             3 -> imgV.setImageResource(R.drawable.carta3);
             4 -> imgV.setImageResource(R.drawable.carta4);
             5 -> imgV.setImageResource(R.drawable.carta5);
@@ -194,7 +202,45 @@ class Dados : AppCompatActivity() {
             10 -> imgV.setImageResource(R.drawable.carta10);
             11 -> imgV.setImageResource(R.drawable.carta11);
             12 -> imgV.setImageResource(R.drawable.carta12);
+            13 -> imgV.setImageResource(R.drawable.carta13);
+            14 -> imgV.setImageResource(R.drawable.carta14);
+            15 -> imgV.setImageResource(R.drawable.carta15);
+            16 -> imgV.setImageResource(R.drawable.carta16);
+            17 -> imgV.setImageResource(R.drawable.carta17);
+            18 -> imgV.setImageResource(R.drawable.cartas18);
         }
     }
+
+    private fun animationCard(): Animation{
+        val translate = TranslateAnimation(
+            Animation.RELATIVE_TO_SELF, 5f,//Desplazamiento inicial (ninguno en el eje X)
+            Animation.RELATIVE_TO_SELF, -1f,//Desplazamiento final (ninguno en el eje X)
+            Animation.RELATIVE_TO_SELF, 0f,//Desplazamiento inicial (arriba en el eje Y)
+            Animation.RELATIVE_TO_SELF, 0f //Desplazamiento final (ninguno en el eje Y)
+        )
+        translate.duration = 1000 // Duración de la animación en milisegundos
+        translate.interpolator = BounceInterpolator()
+        translate.startOffset = 100
+
+        return translate
+    }
+
+    private fun player() {
+        txtName = bindingDados.txtJugador
+        val txtNivel = bindingDados.textNivel
+        val txtTiradas = bindingDados.tiradas
+        val name = intent.getStringExtra("name")
+        val novel = intent.getStringExtra("novel")
+        val rolls = intent.getStringExtra("rolls")
+        if (name!= null){
+            txtName.text = "$name"
+            txtNivel.text = "$novel"
+            txtTiradas.text= "$rolls"
+
+
+        }
+
+    }
+
 }
 
